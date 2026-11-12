@@ -1,0 +1,10 @@
+{
+  "id": "pronote-dashboard",
+  "name": "Pronote Dashboard",
+  "version": "0.5.0",
+  "minAppVersion": "1.13.0",
+  "description": "Affiche les devoirs, le cahier de texte, les notes et les compétences de Pronote, et synchronise les séances en notes Markdown.",
+  "author": "Freeflod",
+  "authorUrl": "https://github.com/Freeflod",
+  "isDesktopOnly": false
+}

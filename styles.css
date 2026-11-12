@@ -1,0 +1,814 @@
+/* Écran : à plat, variables d'Obsidian uniquement. Rien de fixe sur ordinateur ;
+   cibles tactiles agrandies par .is-mobile. */
+.pronote-screen {
+	--pronote-rule: color-mix(in srgb, var(--background-modifier-border) 50%, transparent);
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 60em;
+	margin-inline: auto;
+	padding: var(--size-4-3) var(--size-4-4) var(--size-4-12);
+	font-size: var(--font-ui-medium);
+}
+.pronote-screen [hidden] {
+	display: none !important;
+}
+.pronote-announce:empty,
+.pronote-note:empty,
+.pronote-screen-empty:empty,
+.pronote-block-status:empty,
+.pronote-peek:empty,
+.pronote-bar-mail:empty {
+	display: none;
+}
+.pronote-announce,
+.pronote-note,
+.pronote-screen-empty {
+	color: var(--text-muted);
+	margin: var(--size-4-1) 0;
+}
+
+/* Barre du haut : date à gauche, messages et actualisation à droite */
+.pronote-bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--size-4-1) var(--size-4-4);
+	padding-bottom: var(--size-4-1);
+	border-bottom: 1px solid var(--pronote-rule);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+.pronote-bar-end {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--size-4-2);
+}
+/* « Actualiser » : pendant l'attente, le délai est écrit à côté de l'icône (jamais la seule couleur). */
+.pronote-screen button.pronote-refresh {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-4-1);
+}
+.pronote-refresh-wait {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+}
+.pronote-refresh-wait:empty {
+	display: none;
+}
+.pronote-screen button.pronote-refresh.is-waiting {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+.pronote-bar-mail {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-4-1);
+}
+.pronote-bar-icon {
+	display: inline-flex;
+}
+.pronote-bar-icon .svg-icon {
+	width: var(--size-4-3);
+	height: var(--size-4-3);
+}
+.pronote-screen button.pronote-mail-link {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-4-1);
+	height: auto;
+	padding: var(--size-2-1) var(--size-4-2);
+	background: transparent;
+	box-shadow: none;
+	color: var(--text-accent);
+	font-size: var(--font-ui-small);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.pronote-mail-link:hover {
+	background: var(--background-modifier-hover);
+}
+.pronote-screen button.pronote-bar-date {
+	height: auto;
+	padding: var(--size-2-1) var(--size-4-2);
+	margin-left: calc(var(--size-4-2) * -1);
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.pronote-screen button.pronote-bar-date:hover {
+	background: var(--background-modifier-hover);
+}
+.is-mobile .pronote-screen button.pronote-bar-date {
+	min-height: 44px;
+}
+.pronote-schedule-modal {
+	--pronote-rule: color-mix(in srgb, var(--background-modifier-border) 50%, transparent);
+}
+.pronote-schedule-modal .modal-content {
+	overflow-wrap: anywhere;
+}
+.pronote-schedule-name {
+	margin: var(--size-4-3) 0 var(--size-2-1);
+	font-size: var(--font-ui-medium);
+}
+.pronote-title {
+	margin: var(--size-4-3) 0 var(--size-4-6);
+	font-size: calc(var(--font-ui-large) * 1.5);
+	font-weight: var(--font-semibold);
+	line-height: 1.2;
+}
+
+/* Onglets d'enfants (mode parent) */
+.pronote-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-1);
+	border-bottom: 1px solid var(--pronote-rule);
+	margin: var(--size-4-2) 0;
+}
+.pronote-tab {
+	background: transparent;
+	box-shadow: none;
+	border-radius: var(--radius-s) var(--radius-s) 0 0;
+	color: var(--text-muted);
+}
+.pronote-tab.is-active {
+	color: var(--text-normal);
+	border-bottom: 2px solid var(--interactive-accent);
+	font-weight: var(--font-semibold);
+}
+.pronote-tab:hover {
+	background: var(--background-modifier-hover);
+}
+.pronote-screen button:focus-visible,
+.pronote-screen a:focus-visible,
+.pronote-screen input:focus-visible,
+.pronote-drop:focus-visible {
+	outline: 2px solid var(--interactive-accent);
+	outline-offset: 2px;
+}
+
+/* Bloc : zone (plain, big) ou panneau du bas (panel) */
+.pronote-block {
+	margin: 0;
+}
+.pronote-zone {
+	margin-top: var(--size-4-10);
+	padding-left: var(--size-4-4);
+	border-left: 2px solid var(--pronote-rule);
+}
+.pronote-zone.is-primary {
+	border-left-color: var(--interactive-accent);
+}
+.pronote-block-heading {
+	margin: 0;
+	font-size: var(--font-ui-medium);
+	font-weight: var(--font-semibold);
+}
+.pronote-block.is-plain .pronote-block-heading {
+	margin-bottom: var(--size-2-1);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	letter-spacing: 0.02em;
+}
+.pronote-block.is-big .pronote-block-heading {
+	font-size: var(--font-ui-large);
+	font-weight: var(--font-bold);
+}
+.pronote-block.is-panel .pronote-block-heading {
+	font-weight: var(--font-normal);
+}
+.pronote-block.is-panel {
+	margin-top: var(--size-4-10);
+	border-top: 1px solid var(--pronote-rule);
+}
+.pronote-block.is-panel + .pronote-block.is-panel {
+	margin-top: 0;
+}
+.pronote-block.is-panel:last-child {
+	border-bottom: 1px solid var(--pronote-rule);
+}
+.pronote-block.is-panel .pronote-block-body {
+	padding: var(--size-2-1) var(--size-4-2) var(--size-4-4);
+}
+.pronote-block-status {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	margin: var(--size-2-1) 0 var(--size-4-2);
+}
+.pronote-block-status.is-error {
+	color: var(--text-error);
+}
+.pronote-block-status.is-offline {
+	color: var(--text-warning);
+}
+
+/* Titre-bouton repliable (blocs et lignes) */
+.pronote-screen button.pronote-toggle {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: var(--size-4-1) var(--size-4-3);
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	white-space: normal;
+	height: auto;
+	padding: var(--size-4-2);
+	background: transparent;
+	border: 0;
+	border-radius: var(--radius-s);
+	box-shadow: none;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+}
+.pronote-toggle:hover:not(:disabled) {
+	background: var(--background-modifier-hover);
+}
+.pronote-toggle:disabled {
+	cursor: default;
+	opacity: 1;
+}
+.pronote-toggle-label {
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+.pronote-toggle-end {
+	display: inline-flex;
+	flex: 0 1 auto;
+	margin-left: auto;
+	align-items: center;
+	gap: var(--size-4-2);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-normal);
+	text-align: right;
+}
+.pronote-chevron {
+	display: inline-flex;
+	transition: transform 120ms ease;
+}
+.pronote-chevron .svg-icon {
+	width: var(--size-4-3);
+	height: var(--size-4-3);
+}
+.pronote-toggle[aria-expanded="true"] .pronote-chevron {
+	transform: rotate(90deg);
+}
+.pronote-toggle:disabled .pronote-chevron {
+	visibility: hidden;
+}
+.pronote-peek {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-2-1) var(--size-4-4);
+	margin: calc(var(--size-4-2) * -0.5) var(--size-4-2) var(--size-4-2);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+
+/* Lignes repliables : jours, contrôles, détails */
+.pronote-disclosure {
+	border-top: 1px solid var(--pronote-rule);
+}
+.pronote-disclosure-heading {
+	margin: 0;
+	font-size: var(--font-ui-medium);
+	font-weight: var(--font-normal);
+}
+.pronote-block.is-plain .pronote-block-body > .pronote-disclosure:last-child {
+	border-bottom: 1px solid var(--pronote-rule);
+}
+.pronote-disclosure-body {
+	padding: 0 var(--size-4-2) var(--size-4-2) var(--size-4-4);
+}
+.pronote-toggle.is-day .pronote-toggle-label {
+	font-weight: var(--font-medium);
+}
+.pronote-toggle.is-day .pronote-toggle-label::first-letter {
+	text-transform: uppercase;
+}
+.pronote-toggle.is-today {
+	border-left: 4px solid var(--interactive-accent);
+	border-radius: 0;
+}
+.pronote-toggle.is-today .pronote-toggle-label {
+	font-weight: var(--font-bold);
+}
+.pronote-toggle.is-test {
+	font-size: var(--font-ui-medium);
+}
+.pronote-toggle.is-test .pronote-toggle-hint {
+	color: var(--text-normal);
+	font-weight: var(--font-semibold);
+}
+.pronote-screen button.pronote-toggle.is-seen,
+.pronote-screen button.pronote-toggle.is-link {
+	padding: var(--size-2-2) var(--size-4-2);
+	color: var(--text-accent);
+	font-size: var(--font-ui-small);
+}
+.pronote-toggle.is-seen .pronote-toggle-label {
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+.pronote-disclosure:has(> .pronote-disclosure-heading > .is-seen) {
+	border-top: 0;
+}
+.pronote-minor-heading {
+	margin: var(--size-4-3) 0 var(--size-2-1);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-semibold);
+}
+
+/* Matière : un repère de couleur, toujours suivi du nom écrit */
+.pronote-subject-name {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-4-2);
+}
+.pronote-dot {
+	display: inline-block;
+	flex: none;
+	width: var(--size-4-2);
+	height: var(--size-4-2);
+	border-radius: 50%;
+	background: var(--pronote-subject, var(--text-faint));
+}
+
+/* Devoirs, groupés par matière */
+.pronote-group {
+	padding: var(--size-4-2) 0 var(--size-2-2);
+	border-top: 1px solid var(--pronote-rule);
+}
+.pronote-block-body > .pronote-group:last-child {
+	border-bottom: 1px solid var(--pronote-rule);
+}
+.pronote-group-title {
+	display: flex;
+	margin: 0;
+	color: var(--text-normal);
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-semibold);
+}
+.pronote-block-body > h3.pronote-group-title {
+	margin-top: var(--size-4-3);
+}
+.pronote-task {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--size-4-3);
+	padding: var(--size-4-2) 0;
+}
+.pronote-task.is-saving {
+	opacity: 0.6;
+}
+.pronote-done {
+	display: inline-flex;
+	flex: none;
+	align-items: center;
+	padding-top: var(--size-2-1);
+}
+.pronote-task-main {
+	flex: 1;
+	min-width: 0;
+}
+.pronote-task-main p {
+	margin: 0;
+}
+.pronote-task.is-done .pronote-task-text {
+	color: var(--text-muted);
+	text-decoration: line-through;
+}
+.pronote-overdue {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2);
+	margin: var(--size-4-4) 0 var(--size-2-1);
+	color: var(--text-warning);
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-semibold);
+}
+.pronote-overdue-icon {
+	display: inline-flex;
+}
+.pronote-overdue-icon .svg-icon {
+	width: var(--size-4-3);
+	height: var(--size-4-3);
+}
+
+/* Cartable et emploi du temps */
+.pronote-pills,
+.pronote-lines {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.pronote-pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-1) var(--size-4-5);
+	padding: var(--size-4-2) var(--size-4-2) var(--size-2-2);
+}
+.pronote-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--size-4-2);
+}
+.pronote-pill.is-canceled .pronote-subject-text,
+.pronote-schedule-row.is-canceled .pronote-schedule-text {
+	color: var(--text-muted);
+	text-decoration: line-through;
+}
+.pronote-reminder {
+	margin: var(--size-2-1) var(--size-4-2);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+.pronote-lines li {
+	padding: var(--size-2-2) 0;
+	border-top: 1px solid var(--pronote-rule);
+}
+.pronote-schedule-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-1) var(--size-4-3);
+}
+.pronote-time {
+	min-width: 13ch;
+	font-variant-numeric: tabular-nums;
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+.pronote-flag {
+	margin-left: var(--size-4-2);
+	color: var(--text-warning);
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-semibold);
+}
+
+/* Textes */
+.pronote-strong {
+	font-weight: var(--font-semibold);
+}
+.pronote-muted {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+.pronote-text {
+	white-space: pre-wrap;
+	user-select: text;
+}
+.pronote-disclosure-body p,
+.pronote-block-body > p {
+	margin: var(--size-2-2) 0;
+}
+
+/* Pièces jointes : fichier à ouvrir, puis bouton « enregistrer dans le coffre » */
+.pronote-attachment {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-1);
+}
+.pronote-screen button.pronote-attachment-open,
+.pronote-screen a.pronote-attachment-open {
+	display: inline-flex;
+	flex: 1;
+	align-items: center;
+	justify-content: flex-start;
+	gap: var(--size-4-2);
+	min-width: 0;
+	height: auto;
+	white-space: normal;
+	padding: var(--size-2-2) var(--size-4-2);
+	font-size: var(--font-ui-medium);
+	text-align: left;
+	text-decoration: none;
+}
+.pronote-screen a.pronote-attachment-open:hover {
+	text-decoration: underline;
+}
+.pronote-attachment-name {
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+.pronote-attachment-icon {
+	display: inline-flex;
+	flex: none;
+}
+.pronote-attachment-icon .svg-icon {
+	width: var(--size-4-4);
+	height: var(--size-4-4);
+}
+.pronote-attachment-save {
+	flex: none;
+	color: var(--text-muted);
+}
+.pronote-screen button.pronote-button-plain {
+	background: transparent;
+	box-shadow: none;
+	color: var(--text-accent);
+}
+.pronote-button-plain:hover {
+	background: var(--background-modifier-hover);
+}
+.pronote-button-plain:disabled {
+	color: var(--text-faint);
+}
+.pronote-link {
+	color: var(--text-accent);
+}
+
+/* Messages */
+.pronote-mail {
+	padding: var(--size-4-2) 0;
+	border-top: 1px solid var(--pronote-rule);
+}
+.pronote-mail:last-of-type {
+	border-bottom: 1px solid var(--pronote-rule);
+}
+.pronote-mail-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-2);
+}
+.pronote-mail-unread {
+	margin-left: auto;
+	color: var(--text-accent);
+	font-weight: var(--font-semibold);
+}
+.pronote-mail p {
+	margin: var(--size-2-1) 0;
+}
+.pronote-mail.is-unread .pronote-mail-subject {
+	font-weight: var(--font-bold);
+}
+.pronote-message {
+	margin-top: var(--size-4-2);
+	padding-left: var(--size-4-2);
+	border-left: 2px solid var(--pronote-rule);
+}
+
+/* Mobile : cibles tactiles agrandies */
+.is-mobile .pronote-tab,
+.is-mobile .pronote-toggle,
+.is-mobile .pronote-button-plain,
+.is-mobile .pronote-mail-link,
+.is-mobile .pronote-link,
+.is-mobile .pronote-attachment-save {
+	min-height: 44px;
+}
+.is-mobile .pronote-attachment-save {
+	min-width: 44px;
+}
+.is-mobile .pronote-tab,
+.is-mobile .pronote-button-plain,
+.is-mobile .pronote-link {
+	display: inline-flex;
+	align-items: center;
+}
+.is-mobile .pronote-done {
+	min-width: 44px;
+	min-height: 44px;
+	justify-content: center;
+	margin: calc(var(--size-4-2) * -1) 0;
+}
+.is-mobile .pronote-done input {
+	width: 24px;
+	height: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pronote-chevron {
+		transition: none;
+	}
+}
+
+/* Réglages */
+.pronote-error {
+	color: var(--text-error);
+	font-size: var(--font-ui-small);
+}
+.pronote-wide-input {
+	width: 100%;
+	min-width: 220px;
+}
+.pronote-help {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	margin: 4px 0 10px;
+}
+.pronote-account,
+.pronote-account.setting-item {
+	display: block;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 10px;
+	padding: 4px 14px 10px;
+	margin-bottom: 12px;
+}
+.pronote-drop {
+	border: 2px dashed var(--background-modifier-border);
+	border-radius: 10px;
+	padding: 14px;
+	text-align: center;
+	margin-bottom: 8px;
+}
+.pronote-drop.is-over,
+.pronote-drop:focus-visible {
+	border-color: var(--interactive-accent);
+}
+.pronote-drop-text {
+	color: var(--text-muted);
+	margin-bottom: 10px;
+}
+.pronote-drop-ok {
+	color: var(--text-success);
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.pronote-drop-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+}
+.pronote-hidden {
+	display: none;
+}
+.pronote-more {
+	margin-top: 8px;
+}
+.pronote-more summary {
+	cursor: pointer;
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+
+.pronote-preview-modal {
+	width: min(900px, 95vw);
+}
+
+.pronote-preview-frame {
+	width: 100%;
+	height: 70vh;
+	border: 0;
+}
+
+.pronote-preview-image {
+	max-width: 100%;
+	max-height: 70vh;
+	display: block;
+	margin: 0 auto;
+}
+
+.pronote-preview-text {
+	max-height: 70vh;
+	overflow: auto;
+	white-space: pre-wrap;
+}
+
+/* Résultats scolaires : cartes en liste, sans tableau large ; tout passe à la ligne sur panneau étroit */
+.pronote-result-overall {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: var(--size-4-1) var(--size-4-2);
+	margin: var(--size-4-2) 0;
+}
+.pronote-result-average {
+	font-size: var(--font-ui-large);
+}
+.pronote-result-gap {
+	display: inline-flex;
+	align-items: baseline;
+	gap: var(--size-2-1);
+}
+.pronote-result-notes {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.pronote-result-note {
+	padding: var(--size-2-1) 0;
+}
+.pronote-result-line {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--size-4-1) var(--size-4-3);
+	align-items: baseline;
+}
+.pronote-result-list {
+	margin: var(--size-2-2) 0;
+	padding: 0;
+	list-style: none;
+}
+.pronote-result-title {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: var(--size-4-1) var(--size-4-3);
+}
+.pronote-toggle.is-result .pronote-result-gap {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+.pronote-result-comment,
+.pronote-result-item {
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+}
+
+/* Replis de résultats : titre à gauche, « n notes » + chevron à droite sur la même ligne (le titre se replie dans sa colonne) */
+.pronote-screen button.pronote-toggle.is-result,
+.pronote-screen button.pronote-toggle.is-evaluation {
+	flex-wrap: nowrap;
+	align-items: flex-start;
+	padding-block: var(--size-4-1);
+}
+.pronote-toggle.is-result .pronote-toggle-end,
+.pronote-toggle.is-evaluation .pronote-toggle-end {
+	flex: none;
+	white-space: nowrap;
+}
+
+/* Niveau estimé : petit et muted, tendance écrite à la suite ; hausse et baisse ont le même poids, sans couleur d'alarme */
+.pronote-estimate {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--size-2-1) var(--size-4-2);
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-normal);
+}
+.pronote-trend {
+	display: inline-flex;
+	gap: var(--size-2-1);
+}
+.pronote-skill-head {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-2-1);
+}
+.pronote-skill-name {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2);
+}
+
+/* Ligne d'évaluation repliée : nom, date, puis une pastille par compétence */
+.pronote-eval-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: var(--size-2-1) var(--size-4-3);
+}
+.pronote-pastilles {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--size-2-1);
+}
+
+/* Pastille de niveau de compétence : repère visuel, le niveau reste écrit à côté. */
+.pronote-skill-level {
+	display: flex;
+	align-items: center;
+	gap: var(--size-4-2);
+}
+
+.pronote-pastille {
+	flex: none;
+	width: 0.75em;
+	height: 0.75em;
+	border-radius: 50%;
+	background: var(--background-modifier-border);
+}
+
+.pronote-pastille-top {
+	background: color-mix(in srgb, var(--color-green) 65%, black);
+}
+
+.pronote-pastille-good {
+	background: var(--color-green);
+}
+
+.pronote-pastille-fair {
+	background: var(--color-yellow);
+}
+
+.pronote-pastille-low {
+	background: var(--color-red);
+}

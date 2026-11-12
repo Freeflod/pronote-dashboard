@@ -1,0 +1,45 @@
+# Publication d'une version (décision PD-004) : un tag X.Y.Z (sans « v », convention Obsidian) poussé sur main
+# déclenche le build depuis le code du tag et crée la Release avec main.js, manifest.json et styles.css.
+# Pousser un tag est une livraison : accord explicite du mainteneur à chaque fois.
+name: Release
+
+on:
+  push:
+    tags: ['[0-9]+.[0-9]+.[0-9]+']
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    name: Build et publication
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write # création de la Release, sur ce seul job
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # historique de main, pour la garde ci-dessous
+          persist-credentials: false
+      - name: Le commit du tag doit être fusionné dans main
+        run: git merge-base --is-ancestor "$GITHUB_SHA" origin/main
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - name: Le tag doit correspondre aux versions déclarées
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          test "$TAG" = "$(node -p 'require("./manifest.json").version')"
+          test "$TAG" = "$(node -p 'require("./package.json").version')"
+          node -e 'const v=require("./versions.json"); if (!v[process.env.TAG]) process.exit(1)'
+      - name: Contrôles complets et build
+        run: npm run check
+      - name: Créer la Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: gh release create "$TAG" main.js manifest.json styles.css --repo "$GITHUB_REPOSITORY" --title "$TAG" --verify-tag --generate-notes

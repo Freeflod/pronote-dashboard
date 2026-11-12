@@ -1,0 +1,10 @@
+node_modules/
+main.js
+dist/
+data.json
+*.zip
+.DS_Store
+
+# Banc de test (coffre Obsidian avec jetons Pronote réels) et secrets locaux : jamais dans git
+.banc/
+.env*
