@@ -18,3 +18,4 @@ Les décisions qui expliquent **pourquoi** le plugin est fait ainsi. La règle d
 | [PD-012](0012-devoirs-en-retard-conserves-n-jours-apres-l-echeance-reglabl.md) | Devoirs en retard : conservés N jours après l'échéance, réglable | Acceptée | 2026-11-12 |
 | [PD-013](0013-competences-niveau-global-estime-et-tendance-sans-comparaiso.md) | Compétences : niveau global estimé et tendance, sans comparaison à la classe | Acceptée | 2026-11-12 |
 | [PD-014](0014-pas-de-hooks-versionnes-protection-de-main-cote-serveur.md) | Pas de hooks versionnés, protection de `main` côté serveur | Acceptée | 2026-11-12 |
+| [PD-015](0015-typescript-reste-en-6-tant-que-typescript-eslint-n-ac.md) | TypeScript reste en 6 tant que typescript-eslint n'accepte pas la 7 | Acceptée | 2026-11-12 |

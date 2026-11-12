@@ -14,3 +14,7 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 3
+    ignore:
+      # PD-015 : TypeScript reste en 6 tant que typescript-eslint n'accepte pas la 7.
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
