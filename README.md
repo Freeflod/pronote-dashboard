@@ -29,12 +29,7 @@ Chaque matière se déplie : moyenne de l'élève, écart à la classe écrit en
 
 Pour les établissements qui évaluent par compétences : pliées par matière, puis par évaluation. Une évaluation repliée montre ses pastilles à la suite sur sa ligne.
 
-| Niveau | Pastille |
-| --- | --- |
-| A+ | vert foncé |
-| A | vert |
-| C | jaune |
-| E | rouge |
+Pastilles : A+ vert foncé, A vert, C jaune, E rouge.
 
 Le niveau est toujours écrit en toutes lettres à côté de la pastille. « Absent » et « Non évalué » n'ont pas de couleur.
 
@@ -125,12 +120,10 @@ Les notes de séance déjà créées ne sont jamais réécrites : vous pouvez le
 
 ## Contribuer
 
-Voir [CONTRIBUTING.md](CONTRIBUTING.md). Les agents de développement lisent d'abord [AGENTS.md](AGENTS.md). Les décisions de conception sont dans [`docs/adr/`](docs/adr/README.md), le vocabulaire dans [`CONTEXT.md`](CONTEXT.md), les failles se signalent selon [`docs/SECURITY.md`](docs/SECURITY.md).
+Voir [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Crédits et licence
 
 Copyright (C) 2026 Freeflod. Logiciel libre, distribué sous **GNU GPL version 3 ou ultérieure** (fichier [`LICENSE`](LICENSE)).
 
-Les licences complètes de tous les composants embarqués sont dans [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
-
-Composants embarqués : [Pawnote-LTS](https://github.com/BlocksHub/Pawnote-LTS) (GPL-3.0), fork maintenu de Pawnote ; [jsQR](https://github.com/cozmo/jsQR) (Apache-2.0), pour lire le QR code.
+Composants embarqués : [Pawnote-LTS](https://github.com/BlocksHub/Pawnote-LTS) (GPL-3.0), fork maintenu de Pawnote ; [jsQR](https://github.com/cozmo/jsQR) (Apache-2.0), pour lire le QR code. Leurs licences complètes sont dans [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).

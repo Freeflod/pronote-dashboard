@@ -21,4 +21,4 @@ Un secret rencontré dans un dépôt, une issue ou une PR est considéré compro
 
 ## Dépendances
 
-Le plugin embarque Pawnote-LTS (GPL-3.0) et jsQR (Apache-2.0) dans `main.js` ; licences complètes dans `THIRD_PARTY_NOTICES.md`. Les alertes Dependabot et le contrôle gitleaks de la CI surveillent le dépôt.
+Le plugin embarque Pawnote-LTS (GPL-3.0) et jsQR (Apache-2.0) dans `main.js` ; licences dans `THIRD_PARTY_NOTICES.md`. Dependabot, le secret scanning de GitHub et gitleaks (CI) surveillent le dépôt.
