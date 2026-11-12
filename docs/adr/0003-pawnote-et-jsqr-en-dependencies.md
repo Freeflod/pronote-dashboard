@@ -1,7 +1,5 @@
 # PD-003 · Pawnote et jsQR en `dependencies`
 
-- **Statut** : Acceptée
-- **Date** : 2026-11-06
-- **Poids** : Mineur
+**Contexte.** Ce sont les seules bibliothèques embarquées dans `main.js`, donc les seules qui s'exécutent dans Obsidian.
 
-**Retenu.** Ils sont embarqués dans `main.js` : ce sont les seules dépendances qui s'exécutent dans Obsidian. Les placer en `dependencies` permet à `npm audit --omit=dev` (CI) de les couvrir. Dependabot est actif (npm et actions GitHub), avec `main` comme cible.
+**Retenu.** Les placer en `dependencies`, pour que `npm audit --omit=dev` (CI) les couvre. Tout le reste va en `devDependencies`.
