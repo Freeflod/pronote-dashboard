@@ -33,4 +33,4 @@ Les modules `types`, `props`, `util` et `migrate` sont purs et testés (`test/`,
 
 1. Sur une branche `release/X.Y.Z` : `npm version X.Y.Z --no-git-tag-version` (met à jour `manifest.json` et `versions.json`), puis PR.
 2. Après fusion : `git tag X.Y.Z` sur `main`, puis `git push origin X.Y.Z` (sans « v »).
-3. La CI construit et publie la Release avec `main.js`, `manifest.json` et `styles.css`. `main.js` n'est jamais committé.
+3. La CI construit et publie la Release avec `main.js`, `manifest.json`, `styles.css` et l'archive d'installation `pronote-dashboard-X.Y.Z.zip` (le dossier `pronote-dashboard/` qui contient ces trois fichiers). `main.js` n'est jamais committé.
