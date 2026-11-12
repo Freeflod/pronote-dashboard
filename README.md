@@ -54,11 +54,11 @@ Le niveau est toujours écrit en toutes lettres à côté de la pastille. « Abs
 
 **À la main**, depuis la page des [Releases](../../releases) :
 
-1. Télécharger `main.js`, `manifest.json` et `styles.css`.
-2. Les copier dans `<coffre>/.obsidian/plugins/pronote-dashboard/` (créer le dossier au besoin).
-3. Dans Obsidian : Réglages, Modules communautaires, désactiver le mode restreint si besoin, actualiser la liste, activer **Pronote**.
+1. Télécharger `pronote-dashboard-X.Y.Z.zip`.
+2. Le décompresser dans `<coffre>/.obsidian/plugins/` : il crée le dossier `pronote-dashboard/` avec `main.js`, `manifest.json` et `styles.css`.
+3. Dans Obsidian : Réglages, Modules communautaires, désactiver le mode restreint si besoin, actualiser la liste, activer **Pronote Dashboard**.
 
-Mise à jour : remplacer les trois fichiers. Les connexions existantes sont reprises (compte élève vers le mode Enfant, comptes parent vers le mode Parent).
+Mise à jour : décompresser la nouvelle archive au même endroit, en remplaçant les fichiers. Les connexions existantes sont reprises (compte élève vers le mode Enfant, comptes parent vers le mode Parent).
 
 ## Connexion avec le QR code
 

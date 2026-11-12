@@ -38,8 +38,15 @@ jobs:
           node -e 'const v=require("./versions.json"); if (!v[process.env.TAG]) process.exit(1)'
       - name: Contrôles complets et build
         run: npm run check
+      - name: Archive d'installation (dossier pronote-dashboard/ à décompresser dans .obsidian/plugins/)
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          mkdir pronote-dashboard
+          cp main.js manifest.json styles.css pronote-dashboard/
+          zip -r "pronote-dashboard-$TAG.zip" pronote-dashboard
       - name: Créer la Release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
-        run: gh release create "$TAG" main.js manifest.json styles.css --repo "$GITHUB_REPOSITORY" --title "$TAG" --verify-tag --generate-notes
+        run: gh release create "$TAG" main.js manifest.json styles.css "pronote-dashboard-$TAG.zip" --repo "$GITHUB_REPOSITORY" --title "$TAG" --verify-tag --generate-notes
