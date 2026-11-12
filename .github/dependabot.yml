@@ -18,3 +18,6 @@ updates:
       # PD-015 : TypeScript reste en 6 tant que typescript-eslint n'accepte pas la 7.
       - dependency-name: typescript
         update-types: ["version-update:semver-major"]
+      # PD-016 : ESLint reste en 9 tant que le linter officiel Obsidian n'accepte pas la 10.
+      - dependency-name: eslint
+        update-types: ["version-update:semver-major"]
