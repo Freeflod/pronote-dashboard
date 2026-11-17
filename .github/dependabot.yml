@@ -1,0 +1,23 @@
+# Alertes et mises à jour, une PR par semaine et par écosystème, vers main.
+# Chaque PR se relit et passe la CI : une dépendance se valide (pawnote et jsqr sont embarqués dans main.js).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: main
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+  - package-ecosystem: npm
+    directory: /
+    target-branch: main
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    ignore:
+      # PD-015 : TypeScript reste en 6 tant que typescript-eslint n'accepte pas la 7.
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+      # PD-016 : ESLint reste en 9 tant que le linter officiel Obsidian n'accepte pas la 10.
+      - dependency-name: eslint
+        update-types: ["version-update:semver-major"]
