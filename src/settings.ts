@@ -152,7 +152,7 @@ export class PronoteSettingTab extends PluginSettingTab {
 						searchable: false,
 						render: (setting: Setting) => {
 							setting.addButton((b) => {
-								b.setButtonText("Support me on Ko-fi").onClick(() => window.open(KOFI_URL, "_blank", "noopener,noreferrer"));
+								b.setButtonText("☕ Support me on Ko-fi").onClick(() => window.open(KOFI_URL, "_blank", "noopener,noreferrer"));
 								b.buttonEl.addClass("pronote-kofi-button");
 							});
 						},

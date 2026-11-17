@@ -25,7 +25,7 @@ export class WhatsNewModal extends Modal {
 		const kofi = this.contentEl.createDiv({ cls: "pronote-kofi-banner" });
 		kofi.createEl("p", { text: "Gratuit, libre… et alimenté au café. Si ça vous plaît, offrez-m'en un !" });
 		kofi.createEl("a", {
-			text: "Support me on Ko-fi",
+			text: "☕ Support me on Ko-fi",
 			href: KOFI_URL,
 			cls: "pronote-kofi-button",
 			attr: { target: "_blank", rel: "noopener noreferrer" },
