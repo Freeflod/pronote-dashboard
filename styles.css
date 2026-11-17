@@ -930,6 +930,35 @@
 	width: min(520px, 95vw);
 }
 
+.pronote-kofi-banner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--size-4-3);
+	margin-bottom: var(--size-4-3);
+}
+
+.pronote-kofi-banner p {
+	margin: 0;
+	flex: 1 1 200px;
+}
+
+.pronote-kofi-button,
+.pronote-kofi-button:hover {
+	background-color: #ff5e5b;
+	color: #fff;
+	font-weight: var(--font-semibold);
+	text-decoration: none;
+	border-radius: var(--radius-m);
+	padding: var(--size-4-2) var(--size-4-4);
+	box-shadow: none;
+}
+
+.pronote-kofi-button:hover {
+	filter: brightness(1.08);
+}
+
 .pronote-news ul {
 	margin: var(--size-4-2) 0;
 	padding-left: var(--size-4-5);

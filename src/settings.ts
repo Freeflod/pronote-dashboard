@@ -144,6 +144,23 @@ export class PronoteSettingTab extends PluginSettingTab {
 		return [
 			{
 				type: "group",
+				heading: "Soutenir le projet",
+				items: [
+					{
+						name: "Un café pour le développeur ?",
+						desc: "Le plugin est gratuit, mais les cafés, eux, ne le sont pas. Un petit don et je code avec le sourire (et la tasse pleine).",
+						searchable: false,
+						render: (setting: Setting) => {
+							setting.addButton((b) => {
+								b.setButtonText("Support me on Ko-fi").onClick(() => window.open(KOFI_URL, "_blank", "noopener,noreferrer"));
+								b.buttonEl.addClass("pronote-kofi-button");
+							});
+						},
+					},
+				],
+			},
+			{
+				type: "group",
 				heading: "Synchronisation",
 				items: [
 					{
@@ -314,20 +331,6 @@ export class PronoteSettingTab extends PluginSettingTab {
 						searchable: false,
 						render: (setting: Setting) => {
 							setting.addButton((b) => b.setButtonText("Voir les nouveautés").onClick(() => this.plugin.showNews()));
-						},
-					},
-				],
-			},
-			{
-				type: "group",
-				heading: "Soutenir le projet",
-				items: [
-					{
-						name: "Ko-fi",
-						desc: "Le plugin est gratuit et libre. Un don aide à le faire vivre.",
-						searchable: false,
-						render: (setting: Setting) => {
-							setting.addButton((b) => b.setButtonText("Soutenir sur Ko-fi").onClick(() => window.open(KOFI_URL, "_blank", "noopener,noreferrer")));
 						},
 					},
 				],

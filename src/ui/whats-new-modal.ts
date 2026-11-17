@@ -22,6 +22,14 @@ export class WhatsNewModal extends Modal {
 		this.modalEl.addClass("pronote-news-modal");
 		const newest = this.entries[0];
 		this.setTitle(newest ? `Nouveautés de la version ${newest.version}` : "Nouveautés");
+		const kofi = this.contentEl.createDiv({ cls: "pronote-kofi-banner" });
+		kofi.createEl("p", { text: "Gratuit, libre… et alimenté au café. Si ça vous plaît, offrez-m'en un !" });
+		kofi.createEl("a", {
+			text: "Support me on Ko-fi",
+			href: KOFI_URL,
+			cls: "pronote-kofi-button",
+			attr: { target: "_blank", rel: "noopener noreferrer" },
+		});
 		const body = this.contentEl.createDiv({ cls: "pronote-news" });
 		const several = this.entries.length > 1;
 		for (const entry of this.entries) {
@@ -30,9 +38,6 @@ export class WhatsNewModal extends Modal {
 			const list = section.createEl("ul");
 			for (const item of entry.items) list.createEl("li", { text: item });
 		}
-		const thanks = this.contentEl.createEl("p", { cls: "pronote-muted", text: "Cette application est gratuite. Si elle vous plaît, un coup de pouce est possible sur " });
-		thanks.createEl("a", { text: "Ko-fi", href: KOFI_URL, attr: { target: "_blank", rel: "noopener noreferrer" } });
-		thanks.appendText(" (facultatif).");
 		const foot = this.contentEl.createDiv({ cls: "pronote-news-foot" });
 		foot.createEl("a", {
 			text: "Toutes les versions",
