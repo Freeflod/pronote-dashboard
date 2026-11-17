@@ -1,5 +1,9 @@
 # Pronote Dashboard
 
+<a href="https://ko-fi.com/freeflod"><img src="https://storage.ko-fi.com/cdn/kofi3.png?v=3" alt="Support me on Ko-fi" height="36"></a>
+
+*Gratuit, libre… et alimenté au café. Si ça vous plaît, offrez-m'en un !*
+
 **Plugin non officiel**, sans lien avec Index Éducation, l'éditeur de Pronote. « Pronote » est une marque de son propriétaire.
 
 *In English: an unofficial Obsidian plugin that shows a Pronote (French school platform) student's homework, class log, grades and skills assessments in a dashboard, and can sync lessons to Markdown notes. It needs a Pronote account (parent or student) and connects to your school's Pronote server through a QR code. No telemetry. Interface and documentation are in French.*
@@ -117,10 +121,6 @@ Les notes de séance déjà créées ne sont jamais réécrites : vous pouvez le
 - Pas de comparaison à la classe pour les compétences (la donnée n'est pas fournie) ; le niveau estimé est une estimation.
 - La photo de l'élève ne s'affiche que si Pronote la fournit et qu'on peut la relier à l'enfant ; sinon, l'initiale colorée la remplace (PD-018).
 - Les liens vers les fichiers de Pronote expirent avec la session : les fichiers sont copiés dans le coffre à l'enregistrement ou à la synchronisation.
-
-## Soutenir le projet
-
-Le plugin est gratuit et libre. S'il vous est utile : [ko-fi.com/freeflod](https://ko-fi.com/freeflod).
 
 ## Contribuer
 
