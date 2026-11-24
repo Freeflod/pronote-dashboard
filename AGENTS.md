@@ -1,6 +1,6 @@
 # Instructions pour les agents
 
-Règles communes : `AGENTS.md` du SOCLE, lu avant ce fichier. Celui-ci ne garde que ce qui est propre au projet ; en cas de conflit, la règle la plus prudente l'emporte.
+Règles communes : dossier `~/Brain/SOCLE` (dans la boîte : `/brain/socle`). **Avant de répondre à une question de méthode (choix de modèle, agents, git, tests, sécurité, dépendances), lire `index.md` du SOCLE puis le fichier de `regles/` du thème : ces règles priment sur ta connaissance générale.** Celui-ci ne garde que ce qui est propre au projet ; en cas de conflit, la règle la plus prudente l'emporte.
 
 Plugin Obsidian **Pronote Dashboard**, pour un usage familial : il lit Pronote (compte élève ou parent, connexion par QR code) et affiche devoirs, emploi du temps, cahier de texte, ressources, messages, notes et compétences ; il peut écrire les séances en notes Markdown. TypeScript 6 compilé par esbuild en un seul `main.js`. Embarqués : `@blockshub/pawnote-lts` (GPL-3.0, bibliothèque non officielle) et `jsqr` (Apache-2.0). Aucun serveur, aucune télémétrie. Mobile compris, Obsidian 1.13.0 minimum. Licence GPL-3.0-or-later.
 
