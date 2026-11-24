@@ -10,7 +10,7 @@ Avant toute PR : `npm run check` vert. Aucune donnée réelle d'enfant ni jeton 
 
 ## Branches et portes dures
 
-- **Niveau** : ordinaire. `main` est protégée côté GitHub (PR et contrôles requis) ; travail par branches `lot/…`, `fix/…`, `chore/…`, `docs/…`, `release/…`, puis PR. La fusion d'une PR est faite par le superviseur.
+- **Niveau** : ordinaire. `main` est protégée côté GitHub (PR et contrôles requis) ; travail par branches `lot/…`, `fix/…`, `chore/…`, `docs/…`, `release/…`, puis PR. Fusion de PR autonome (PR toujours obligatoire, contrôles verts).
 - **Portes dures propres au projet** : pousser un tag de version (publie une Release) ; lire les fichiers de test locaux exclus de git (jetons réels) ; toute connexion Pronote avec un compte réel d'enfant ; supprimer une branche distante ou le dépôt.
 - **Versions** : à chaque nouvelle version compilée, proposer la publication (`release/X.Y.Z`, PR, puis tag avec l'accord du superviseur).
 
