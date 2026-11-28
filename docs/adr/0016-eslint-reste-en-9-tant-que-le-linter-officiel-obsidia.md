@@ -1,6 +1,6 @@
 # PD-016 · ESLint reste en 9 tant que le linter officiel Obsidian n'accepte pas la 10
 
-**Contexte.** `eslint-plugin-obsidianmd` tire une dépendance qui déclare `eslint@^9` ; avec ESLint 10, `npm ci` signale un conflit de pair et `npm run lint` échoue (PD-008).
+**Contexte.** `eslint-plugin-obsidianmd` tire une dépendance qui déclare `eslint@^9` ; avec ESLint 10, `npm ci` signale un conflit de pair et `npm run lint` échoue ([PD-008](0008-conformite-totale-aux-regles-obsidian-typescript-6-linter-of.md)).
 
 **Retenu.**
 - Dependabot ignore les montées **majeures** d'`eslint` (`.github/dependabot.yml`) ; les montées mineures et correctives de la 9 continuent d'arriver.

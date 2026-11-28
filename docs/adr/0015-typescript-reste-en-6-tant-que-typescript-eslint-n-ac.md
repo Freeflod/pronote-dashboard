@@ -1,6 +1,6 @@
 # PD-015 · TypeScript reste en 6 tant que typescript-eslint n'accepte pas la 7
 
-**Contexte.** `typescript-eslint` refuse TypeScript 7 : `npm ci` échoue (`ERESOLVE`) sur la montée proposée par Dependabot (PD-008).
+**Contexte.** `typescript-eslint` refuse TypeScript 7 : `npm ci` échoue (`ERESOLVE`) sur la montée proposée par Dependabot ([PD-008](0008-conformite-totale-aux-regles-obsidian-typescript-6-linter-of.md)).
 
 **Retenu.**
 - Dependabot ignore les montées **majeures** de `typescript` (`.github/dependabot.yml`) ; les montées mineures et correctives de la 6 continuent d'arriver.

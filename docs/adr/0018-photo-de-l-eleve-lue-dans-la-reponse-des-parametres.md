@@ -5,7 +5,7 @@
 **Retenu.**
 - `src/client.ts` lit cette réponse à chaque connexion, sans requête de plus, et en tire les photos.
 - Attribution : par rang quand la partie sécurisée est lisible ; sinon (réponse chiffrée), le n-ième élève avec photo reçoit le n-ième fichier.
-- La photo est rangée dans le magasin de fichiers IndexedDB (PD-009), sous le plafond en Mo ; à 0 Mo : en mémoire pour la session seulement. Jamais dans `data.json`. Elle vit une année (365 jours) et ne change qu'à la reconnexion du compte par QR code, qui la remplace ou l'efface. « Vider le cache » et le retrait d'un compte l'effacent aussi ; elle revient à la connexion suivante.
+- La photo est rangée dans le magasin de fichiers IndexedDB ([PD-009](0009-cache-indexeddb-par-appareil-et-architecture-depot-de-donnee.md)), sous le plafond en Mo ; à 0 Mo : en mémoire pour la session seulement. Jamais dans `data.json`. Elle vit une année (365 jours) et ne change qu'à la reconnexion du compte par QR code, qui la remplace ou l'efface. « Vider le cache » et le retrait d'un compte l'effacent aussi ; elle revient à la connexion suivante.
 - Repli sur l'initiale sans message d'erreur : un serveur plus ancien sans photo jointe n'a que l'initiale.
 
 **Écarté.** Corriger l'adresse de `profilePicture` : aucune des variantes essayées ne répond.
