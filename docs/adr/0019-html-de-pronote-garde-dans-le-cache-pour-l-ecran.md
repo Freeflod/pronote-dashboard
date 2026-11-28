@@ -3,7 +3,7 @@
 **Contexte.** Le texte d'un contenu de séance arrive de Pronote en HTML (gras, listes, couleurs). `htmlToMarkdown` le convertit en Markdown simple pour les notes de séance du coffre ; affiché tel quel à l'écran, ce Markdown montrait ses marques (`**`) et perdait les couleurs.
 
 **Retenu.**
-- `LessonContentDTO` porte les deux formes : `text` (Markdown, inchangé, seul lu par la synchronisation du coffre) et `html` (HTML tel que reçu), rangées ensemble dans le cache IndexedDB (PD-009). Jamais dans `data.json`, jamais dans une note.
+- `LessonContentDTO` porte les deux formes : `text` (Markdown, inchangé, seul lu par la synchronisation du coffre) et `html` (HTML tel que reçu), rangées ensemble dans le cache IndexedDB ([PD-009](0009-cache-indexeddb-par-appareil-et-architecture-depot-de-donnee.md)). Jamais dans `data.json`, jamais dans une note.
 - L'écran rend `html` par `renderRichHtml` : analyse hors de la page (`DOMParser`), puis reconstruction par `createEl` depuis une liste blanche de balises (`src/rich-color.ts`). Aucun attribut n'est recopié ; seuls passent le `href` d'un lien http ou https et des classes de couleur. Jamais `innerHTML`.
 - Les couleurs du professeur sont ramenées aux huit couleurs d'Obsidian (la plus proche par teinte) : elles suivent le thème. Gris, noir et blanc ne colorent rien.
 - `html` n'est gardé que jusqu'à 30 000 caractères ; au-delà, seul `text` s'affiche. Le choix d'affichage des séances est gardé par appareil sous une clé hachée, sans nom d'élève.

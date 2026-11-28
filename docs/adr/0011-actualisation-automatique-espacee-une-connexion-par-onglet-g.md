@@ -8,7 +8,7 @@
 - Bouton « Actualiser » : 2 minutes minimum entre deux appuis, avec un libellé pendant l'attente.
 - Arrêt de l'automatique après 3 échecs de suite, avec un message ; reprise par un rafraîchissement manuel réussi.
 - Aucune actualisation en arrière-plan sur mobile : l'automatique ne tourne que Obsidian ouvert.
-- Notification dans Obsidian (réglable, active par défaut) pour un nouveau devoir ou message. Lire la liste des discussions ne marque jamais « lu » (PD-010).
+- Notification dans Obsidian (réglable, active par défaut) pour un nouveau devoir ou message. Lire la liste des discussions ne marque jamais « lu » ([PD-010](0010-ecritures-vers-pronote-fait-et-lu.md)).
 
 **Écarté.** Notification push du système : pas de serveur dans le projet.
 
